@@ -298,31 +298,38 @@ em {
 
 /* Historique des camps */
 .camp-history {
-  margin-top: 4rem;
   max-width: 760px;
 }
 
 .camp-history h3 {
   margin: 0.5rem 0 1.5rem;
+  font: 800 clamp(34px, 4.5vw, 52px)/1 var(--display);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.camp-history h3 em {
+  color: var(--acid);
 }
 
 .camp-list {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-top: 1px solid var(--line-dark);
 }
 
 .camp-list li {
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 1rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line-dark);
 }
 
 .camp-list time {
   font-weight: 700;
+  color: var(--white);
 }
 
 @media (max-width: 640px) {
@@ -338,7 +345,7 @@ em {
   left: 0;
   right: 0;
   bottom: -1px;
-  height: 90px;
+  height: 64px;
   overflow: hidden;
   pointer-events: none;
 }
@@ -356,8 +363,8 @@ em {
 }
 
 .wave-back {
-  opacity: 0.55;
-  animation: wave-drift 12s linear infinite;
+  opacity: 0.3;
+  animation: wave-drift 28s linear infinite;
 }
 
 .wave-back path {
@@ -365,28 +372,18 @@ em {
 }
 
 .wave-front {
-  animation: wave-drift 8s linear infinite reverse;
+  animation: wave-drift 22s linear infinite reverse;
 }
 
-/* Parcours : 10 bouées = 9 couloirs, reliées par un filin */
+/* Parcours : 10 bouées = 9 couloirs */
 .buoys {
   position: absolute;
   left: 6%;
   right: 6%;
-  bottom: 38px;
+  bottom: 30px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-}
-
-.buoys::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 8px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45) 12%, rgba(255, 255, 255, 0.45) 88%, transparent);
 }
 
 .buoys span {
@@ -395,8 +392,8 @@ em {
   height: 16px;
   border-radius: 5px 5px 3px 3px;
   background: linear-gradient(90deg, #b8402d, #e0533d 55%, #f08a78);
-  /* Suit la houle : même période que la crête de la vague (4 s), phase calée par bouée */
-  animation: buoy-ride 4s ease-in-out infinite;
+  /* Suit la houle : oscillation douce, phase calée par bouée */
+  animation: buoy-ride 7s ease-in-out infinite;
 }
 
 .buoys span::after {
@@ -432,10 +429,10 @@ em {
 @keyframes buoy-ride {
   0%,
   100% {
-    transform: translateY(-8px);
+    transform: translateY(-2px);
   }
   50% {
-    transform: translateY(22px);
+    transform: translateY(5px);
   }
 }
 
@@ -504,22 +501,6 @@ em {
   }
 }
 
-/* Barre de progression sous chaque repère de course */
-.metrics div::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 3px;
-  width: 0;
-  background: var(--acid);
-  transition: width 1.2s var(--ease) 0.4s;
-}
-
-.metrics.is-visible div::after {
-  width: 100%;
-}
-
 /* Lignes de résultats qui s’alignent une à une */
 .table-wrap.is-visible tbody tr {
   animation: row-in 0.5s var(--ease) both;
@@ -549,24 +530,6 @@ em {
   to {
     opacity: 1;
     transform: none;
-  }
-}
-
-/* Bande damier qui défile sur le résultat phare */
-.highlight::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 8px;
-  background: repeating-conic-gradient(var(--acid) 0 25%, var(--ink) 0 50%) 0 0 / 16px 16px;
-  animation: checker 1.5s linear infinite;
-}
-
-@keyframes checker {
-  to {
-    background-position: 16px 0;
   }
 }
 
@@ -720,12 +683,6 @@ em {
 
 /* Cards */
 
-.steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
 .card {
   position: relative;
   padding: 32px 28px;
@@ -789,42 +746,6 @@ em {
   font: 800 34px/1 var(--display);
   color: var(--acid);
   -webkit-text-stroke: 1px var(--teal);
-}
-
-.metrics {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 40px;
-}
-
-.metrics div {
-  position: relative;
-  overflow: hidden;
-  padding: 22px 24px;
-  border-radius: var(--radius);
-  background: var(--ink);
-  color: var(--white);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.metrics span {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #8fa6a6;
-}
-
-.metrics strong {
-  font: 800 40px/1 var(--display);
-  color: var(--acid);
-}
-
-.metrics small {
-  font: 500 14px var(--sans);
-  color: #a9bcbb;
 }
 
 .note {
@@ -1165,16 +1086,9 @@ tbody tr:last-child td {
   padding: 20px;
 }
 
-.sponsor figcaption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 10px 14px;
+.sponsor-dark {
   background: var(--ink);
-  color: var(--white);
-  font-size: 12px;
-  font-weight: 700;
+  border-color: var(--line-dark);
 }
 
 .sponsor-placeholder {
@@ -1435,7 +1349,6 @@ tbody tr:last-child td {
     display: none;
   }
 
-  .metrics,
   .stats {
     grid-template-columns: 1fr;
   }
@@ -1443,10 +1356,6 @@ tbody tr:last-child td {
   .facts {
     grid-template-columns: 1fr;
     gap: 14px;
-  }
-
-  .highlight-main > b {
-    margin-left: 0;
   }
 
   .sponsor-grid {
@@ -1500,7 +1409,4 @@ tbody tr:last-child td {
     color: var(--acid);
   }
 
-  .metrics div::after {
-    width: 100%;
-  }
 }

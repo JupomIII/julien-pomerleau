@@ -30,14 +30,20 @@ Puis visite <http://localhost:4173>.
 3. Dans la section **Mes partenaires actuels**, remplace les emplacements `VOTRE LOGO ICI` par de nouvelles cartes. Dépose d’abord chaque logo dans `assets/sponsors/`, puis ajoute une image comme celle de Fondation Ascension :
 
    ```html
-   <figure class="sponsor-card">
+   <figure class="sponsor">
      <img
        src="assets/sponsors/nom-du-sponsor.png"
        alt="Nom du sponsor"
        loading="lazy"
      />
-     <figcaption>PARTENAIRE · NOM DU SPONSOR</figcaption>
    </figure>
+   ```
+
+   Les logos s’affichent sans légende. Pour un logo dont le texte est blanc (comme
+   `excellence-sportive.png`), ajoute la classe `sponsor-dark` à la `figure` :
+
+   ```html
+   <figure class="sponsor sponsor-dark">
    ```
 
 4. Pour remplacer une photo, copie la nouvelle image dans `assets/photos/` et modifie le `src` de la balise `<img>` correspondante dans `index.html`. Garde un texte `alt` qui décrit réellement la photo.
