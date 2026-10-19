@@ -1,0 +1,12 @@
+# Rapport de résultats : copie locale seulement, jamais publiée
+assets/documents/
+
+# Images en double ou non utilisées par index.html (ne pas synchroniser)
+assets/photos/course-2026-06-02.webp
+assets/photos/entrainement-2026-08-26.webp
+assets/photos/kayak-course.webp
+assets/photos/portrait-julien.webp
+assets/photos/seance-verticale.jpeg
+
+# Dossier technique de l'outil
+.freebuff/
