@@ -83,7 +83,7 @@ em {
   height: 76px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 0 6%;
   color: var(--white);
   transition: background 0.3s var(--ease), box-shadow 0.3s;
@@ -657,28 +657,6 @@ em {
   color: var(--ink);
   font-size: 12px;
   font-weight: 700;
-}
-
-.facts {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin: 36px 0 0;
-  padding-top: 24px;
-  border-top: 1px solid var(--line-dark);
-}
-
-.facts dt {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #8fa6a6;
-}
-
-.facts dd {
-  margin: 4px 0 0;
-  font-weight: 700;
-  font-size: 14px;
 }
 
 /* Cards */
@@ -1351,11 +1329,6 @@ tbody tr:last-child td {
 
   .stats {
     grid-template-columns: 1fr;
-  }
-
-  .facts {
-    grid-template-columns: 1fr;
-    gap: 14px;
   }
 
   .sponsor-grid {
