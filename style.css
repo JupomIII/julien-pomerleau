@@ -278,7 +278,7 @@ em {
 .scroll-cue {
   position: absolute;
   right: 6%;
-  bottom: 36px;
+  bottom: 120px;
   display: grid;
   place-items: center;
   width: 44px;
@@ -294,6 +294,42 @@ em {
   background: var(--acid);
   border-color: var(--acid);
   color: var(--ink);
+}
+
+/* Historique des camps */
+.camp-history {
+  margin-top: 4rem;
+  max-width: 760px;
+}
+
+.camp-history h3 {
+  margin: 0.5rem 0 1.5rem;
+}
+
+.camp-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.camp-list li {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.camp-list time {
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .camp-list li {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
 }
 
 /* Ligne d’eau qui ondule en bas du hero */
@@ -332,6 +368,77 @@ em {
   animation: wave-drift 8s linear infinite reverse;
 }
 
+/* Parcours : 10 bouées = 9 couloirs, reliées par un filin */
+.buoys {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.buoys::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45) 12%, rgba(255, 255, 255, 0.45) 88%, transparent);
+}
+
+.buoys span {
+  position: relative;
+  width: 10px;
+  height: 16px;
+  border-radius: 5px 5px 3px 3px;
+  background: linear-gradient(90deg, #b8402d, #e0533d 55%, #f08a78);
+  /* Suit la houle : même période que la crête de la vague (4 s), phase calée par bouée */
+  animation: buoy-ride 4s ease-in-out infinite;
+}
+
+.buoys span::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  filter: blur(1px);
+  z-index: -1;
+}
+
+.buoys span:nth-child(even) {
+  background: linear-gradient(90deg, #c9d3cf, #f4f7f5 55%, #ffffff);
+}
+
+/* Délais calculés : chaque bouée atteint la crête au moment où elle passe sous elle */
+.buoys span:nth-child(1) { animation-delay: 3.48s; }
+.buoys span:nth-child(2) { animation-delay: 0.26s; }
+.buoys span:nth-child(3) { animation-delay: 1.04s; }
+.buoys span:nth-child(4) { animation-delay: 1.83s; }
+.buoys span:nth-child(5) { animation-delay: 2.61s; }
+.buoys span:nth-child(6) { animation-delay: 3.39s; }
+.buoys span:nth-child(7) { animation-delay: 0.17s; }
+.buoys span:nth-child(8) { animation-delay: 0.96s; }
+.buoys span:nth-child(9) { animation-delay: 1.74s; }
+.buoys span:nth-child(10) { animation-delay: 2.52s; }
+
+/* Crête de la vague : bouée haute ; creux : bouée basse */
+@keyframes buoy-ride {
+  0%,
+  100% {
+    transform: translateY(-8px);
+  }
+  50% {
+    transform: translateY(22px);
+  }
+}
+
 @keyframes wave-drift {
   to {
     transform: translateX(-50%);
@@ -353,6 +460,113 @@ em {
   }
   to {
     background-position: -100% 0;
+  }
+}
+
+/* Traits de vitesse derrière le hero */
+.hero-streaks span {
+  position: absolute;
+  left: -30%;
+  height: 2px;
+  width: 14vw;
+  background: linear-gradient(90deg, transparent, rgba(82, 230, 210, 0.7), transparent);
+  opacity: 0;
+  animation: streak-run 2.6s linear infinite;
+}
+
+.hero-streaks span:nth-child(1) {
+  top: 30%;
+}
+
+.hero-streaks span:nth-child(2) {
+  top: 46%;
+  width: 22vw;
+  animation-delay: 0.9s;
+}
+
+.hero-streaks span:nth-child(3) {
+  top: 62%;
+  width: 9vw;
+  animation-delay: 1.7s;
+}
+
+@keyframes streak-run {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  15% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(160vw);
+  }
+}
+
+/* Barre de progression sous chaque repère de course */
+.metrics div::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background: var(--acid);
+  transition: width 1.2s var(--ease) 0.4s;
+}
+
+.metrics.is-visible div::after {
+  width: 100%;
+}
+
+/* Lignes de résultats qui s’alignent une à une */
+.table-wrap.is-visible tbody tr {
+  animation: row-in 0.5s var(--ease) both;
+}
+
+.table-wrap.is-visible tbody tr:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.table-wrap.is-visible tbody tr:nth-child(3) {
+  animation-delay: 0.16s;
+}
+
+.table-wrap.is-visible tbody tr:nth-child(4) {
+  animation-delay: 0.24s;
+}
+
+.table-wrap.is-visible tbody tr:nth-child(5) {
+  animation-delay: 0.32s;
+}
+
+@keyframes row-in {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Bande damier qui défile sur le résultat phare */
+.highlight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: repeating-conic-gradient(var(--acid) 0 25%, var(--ink) 0 50%) 0 0 / 16px 16px;
+  animation: checker 1.5s linear infinite;
+}
+
+@keyframes checker {
+  to {
+    background-position: 16px 0;
   }
 }
 
@@ -585,6 +799,8 @@ em {
 }
 
 .metrics div {
+  position: relative;
+  overflow: hidden;
   padding: 22px 24px;
   border-radius: var(--radius);
   background: var(--ink);
@@ -658,6 +874,8 @@ em {
 }
 
 .highlight {
+  position: relative;
+  overflow: hidden;
   padding: 30px 32px;
   margin-bottom: 40px;
   border-radius: var(--radius);
@@ -1280,5 +1498,9 @@ tbody tr:last-child td {
   .hero h1 em {
     background: none;
     color: var(--acid);
+  }
+
+  .metrics div::after {
+    width: 100%;
   }
 }
