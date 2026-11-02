@@ -321,20 +321,30 @@ h2 {
   color: var(--ink);
 }
 
-.profile-facts .is-key {
-  padding-left: 14px;
-  padding-right: 14px;
-  border-radius: 4px;
-  background: rgba(11, 127, 132, 0.08);
+.profile-facts > div.is-key {
+  margin: 4px -14px 0;
+  padding: 14px;
+  border: 1px solid rgba(11, 127, 132, 0.22);
+  border-radius: 6px;
+  background: rgba(11, 127, 132, 0.07);
 }
 
-.profile-facts .is-key dt {
+.profile-facts > div.is-key dt {
   color: var(--teal);
 }
 
-.profile-facts .is-key dd {
+.profile-facts > div.is-key dd {
   font-weight: 500;
+  line-height: 1.45;
   color: var(--teal);
+}
+
+.fact-sub {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(11, 127, 132, 0.78);
 }
 
 /* ---------- Parcours ---------- */
