@@ -918,11 +918,11 @@ h2 {
   }
 }
 
-/* ---------- Impression ---------- */
+/* ---------- Impression : deux pages A4 ---------- */
 
 @media print {
   @page {
-    margin: 14mm;
+    margin: 12mm 14mm;
   }
 
   html {
@@ -932,11 +932,11 @@ h2 {
   body {
     background: #fff;
     color: var(--ink);
-    font-size: 10.5pt;
-    line-height: 1.5;
+    font-size: 9.5pt;
+    line-height: 1.4;
   }
 
-  /* Les animations ne doivent pas laisser de blocs invisibles sur papier */
+  /* Les blocs reveles au defilement doivent rester visibles */
   .js .reveal {
     opacity: 1 !important;
     transform: none !important;
@@ -956,19 +956,24 @@ h2 {
     padding: 0;
   }
 
-  /* Ouverture : photo compacte, nom et sous-titre sur blanc */
+  .narrow .intro,
+  .intro.center {
+    max-width: none;
+  }
+
+  /* Ouverture compacte */
   .hero {
     height: auto;
     min-height: 0;
-    padding-bottom: 4mm;
+    padding-bottom: 2mm;
+    border-bottom: 2px solid var(--teal);
     background: none;
     color: var(--ink);
-    border-bottom: 2px solid var(--teal);
   }
 
   .hero-image {
     position: static;
-    height: 42mm;
+    height: 26mm;
     border-radius: 6px;
     object-position: center 20%;
   }
@@ -981,24 +986,23 @@ h2 {
     position: static;
     transform: none;
     width: auto;
-    padding-top: 5mm;
+    padding-top: 3mm;
     color: var(--ink);
   }
 
   .hero h1 {
-    font-size: 26pt;
-    color: var(--ink);
+    font-size: 20pt;
   }
 
   .hero-meta {
-    margin-top: 3mm;
-    font-size: 9pt;
+    margin-top: 1mm;
+    font-size: 8pt;
     color: var(--muted-light);
   }
 
-  /* Sections : fond blanc, marges resserrees pour la feuille */
+  /* Sections */
   .section {
-    padding: 6mm 0;
+    padding: 3mm 0;
   }
 
   .section-dark,
@@ -1012,16 +1016,18 @@ h2 {
   }
 
   h2 {
-    font-size: 16pt;
+    font-size: 13pt;
   }
 
   .intro {
-    font-size: 9.5pt;
+    margin-top: 1.5mm;
+    font-size: 8.5pt;
     color: var(--muted-light);
   }
 
   .label {
-    margin: 6mm 0 3mm;
+    margin: 3mm 0 2mm;
+    font-size: 8pt;
   }
 
   h2,
@@ -1032,11 +1038,10 @@ h2 {
   }
 
   p {
-    orphans: 3;
-    widows: 3;
+    orphans: 2;
+    widows: 2;
   }
 
-  /* Aucun bloc coupe en deux par un saut de page */
   .profile-card,
   .split-photo,
   .gallery figure,
@@ -1049,69 +1054,134 @@ h2 {
 
   /* Profil */
   .profile-card {
-    grid-template-columns: 40mm minmax(0, 1fr);
-    gap: 6mm;
-    margin-top: 5mm;
+    grid-template-columns: 32mm minmax(0, 1fr);
+    gap: 4mm;
+    align-items: start;
+    margin-top: 3mm;
     padding: 0;
     background: none;
   }
 
   .profile-photo {
-    height: 46mm;
+    height: 30mm;
   }
 
   .profile-facts > div {
-    padding: 2mm 0;
+    grid-template-columns: 24mm minmax(0, 1fr);
+    padding: 1.2mm 0;
+  }
+
+  .profile-facts dd {
+    font-size: 9pt;
   }
 
   .profile-facts > div.is-key {
-    margin: 2mm 0 0;
-    padding: 2.5mm 3mm;
+    margin: 1mm 0 0;
+    padding: 1.5mm 2mm;
     background: none;
     border-color: rgba(11, 127, 132, 0.45);
   }
 
-  /* Parcours : une seule colonne, sinon la photo part seule sur une page */
+  /* Parcours : une colonne, photo en bandeau large */
   .split {
     grid-template-columns: 1fr;
-    gap: 6mm;
+    gap: 3mm;
   }
 
   .split-photo {
-    height: auto;
+    height: 46mm;
     min-height: 0;
-    aspect-ratio: 3 / 2;
   }
 
   .split-photo img {
-    object-position: center 30%;
+    object-position: center 34%;
+  }
+
+  .split-photo figcaption {
+    right: 6px;
+    bottom: 6px;
+    padding: 2px 5px;
+    font-size: 7pt;
   }
 
   .timeline {
-    margin-top: 5mm;
+    margin-top: 3mm;
   }
 
   .timeline li {
-    padding: 2mm 0;
+    padding: 1.2mm 0;
   }
 
-  /* Championnats */
+  .timeline time {
+    font-size: 7.5pt;
+  }
+
+  .timeline span {
+    font-size: 9pt;
+  }
+
+  .timeline-country {
+    font-size: 8pt;
+  }
+
+  /* Palmares : debut de la deuxieme page */
   .honours {
-    padding: 7mm 0;
+    padding: 0 0 3mm;
+    border-top: 0;
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .honours-inner {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 6mm;
+  }
+
+  .honours-main {
+    gap: 5mm;
   }
 
   .honours-num {
-    font-size: 30pt;
+    font-size: 22pt;
+  }
+
+  .honours-aside {
+    padding-left: 5mm;
+  }
+
+  .honours-row {
+    padding: 1.5mm 0;
   }
 
   .honours-row .honours-num {
-    font-size: 18pt;
+    font-size: 13pt;
   }
 
-  /* Galerie et partenaires */
+  .honours-row h3 {
+    font-size: 9pt;
+  }
+
+  .honours-row .honours-place {
+    margin-top: 0;
+    font-size: 8pt;
+  }
+
+  .honours-place {
+    margin-top: 1mm;
+    font-size: 8.5pt;
+  }
+
+  .city-list {
+    margin-top: 1mm;
+    font-size: 8.5pt;
+    line-height: 1.35;
+  }
+
+  /* Galerie */
   .gallery,
   .sponsor-grid {
-    gap: 3mm;
+    gap: 2mm;
   }
 
   .gallery {
@@ -1121,9 +1191,15 @@ h2 {
   .gallery figure,
   .gallery figure:last-child {
     grid-column: auto;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: auto;
+    height: 34mm;
   }
 
+  .section-head {
+    margin-bottom: 2mm;
+  }
+
+  /* Partenaires */
   .sponsor-grid,
   .sponsor-grid .sponsor:first-child {
     grid-template-columns: repeat(2, 1fr);
@@ -1135,7 +1211,15 @@ h2 {
   }
 
   .sponsor-logo {
-    height: 32mm;
+    height: 20mm;
+  }
+
+  .sponsor figcaption {
+    font-size: 9pt;
+  }
+
+  .sponsor figcaption small {
+    font-size: 7.5pt;
   }
 
   .sponsor-dark .sponsor-logo {
@@ -1145,16 +1229,18 @@ h2 {
     print-color-adjust: exact;
   }
 
-  /* Pied de page : il porte le contact une fois le formulaire retire */
+  /* Pied de page : il porte le contact */
   .site-footer {
-    padding: 5mm 0 0;
+    margin-top: 4mm;
+    padding: 2mm 0 0;
     background: none;
     color: var(--muted-light);
     border-top: 1px solid #d5e1df;
+    font-size: 8.5pt;
   }
 
   .footer-inner {
-    gap: 3mm;
+    gap: 2mm;
   }
 
   .footer-inner .brand {
