@@ -917,3 +917,251 @@ h2 {
     transform: none;
   }
 }
+
+/* ---------- Impression ---------- */
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background: #fff;
+    color: var(--ink);
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+
+  /* Les animations ne doivent pas laisser de blocs invisibles sur papier */
+  .js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .site-header,
+  .menu-toggle,
+  .main-nav,
+  .nav-cta,
+  #contact,
+  .sponsor-placeholder {
+    display: none !important;
+  }
+
+  .wrap {
+    max-width: none;
+    padding: 0;
+  }
+
+  /* Ouverture : photo compacte, nom et sous-titre sur blanc */
+  .hero {
+    height: auto;
+    min-height: 0;
+    padding-bottom: 4mm;
+    background: none;
+    color: var(--ink);
+    border-bottom: 2px solid var(--teal);
+  }
+
+  .hero-image {
+    position: static;
+    height: 42mm;
+    border-radius: 6px;
+    object-position: center 20%;
+  }
+
+  .hero-shade {
+    display: none;
+  }
+
+  .hero-copy {
+    position: static;
+    transform: none;
+    width: auto;
+    padding-top: 5mm;
+    color: var(--ink);
+  }
+
+  .hero h1 {
+    font-size: 26pt;
+    color: var(--ink);
+  }
+
+  .hero-meta {
+    margin-top: 3mm;
+    font-size: 9pt;
+    color: var(--muted-light);
+  }
+
+  /* Sections : fond blanc, marges resserrees pour la feuille */
+  .section {
+    padding: 6mm 0;
+  }
+
+  .section-dark,
+  .section-light {
+    background: none;
+    color: var(--ink);
+  }
+
+  .section-dark h2 {
+    color: var(--ink);
+  }
+
+  h2 {
+    font-size: 16pt;
+  }
+
+  .intro {
+    font-size: 9.5pt;
+    color: var(--muted-light);
+  }
+
+  .label {
+    margin: 6mm 0 3mm;
+  }
+
+  h2,
+  h3,
+  .label {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Aucun bloc coupe en deux par un saut de page */
+  .profile-card,
+  .split-photo,
+  .gallery figure,
+  .sponsor,
+  .timeline li,
+  .honours-row {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Profil */
+  .profile-card {
+    grid-template-columns: 40mm minmax(0, 1fr);
+    gap: 6mm;
+    margin-top: 5mm;
+    padding: 0;
+    background: none;
+  }
+
+  .profile-photo {
+    height: 46mm;
+  }
+
+  .profile-facts > div {
+    padding: 2mm 0;
+  }
+
+  .profile-facts > div.is-key {
+    margin: 2mm 0 0;
+    padding: 2.5mm 3mm;
+    background: none;
+    border-color: rgba(11, 127, 132, 0.45);
+  }
+
+  /* Parcours : une seule colonne, sinon la photo part seule sur une page */
+  .split {
+    grid-template-columns: 1fr;
+    gap: 6mm;
+  }
+
+  .split-photo {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 3 / 2;
+  }
+
+  .split-photo img {
+    object-position: center 30%;
+  }
+
+  .timeline {
+    margin-top: 5mm;
+  }
+
+  .timeline li {
+    padding: 2mm 0;
+  }
+
+  /* Championnats */
+  .honours {
+    padding: 7mm 0;
+  }
+
+  .honours-num {
+    font-size: 30pt;
+  }
+
+  .honours-row .honours-num {
+    font-size: 18pt;
+  }
+
+  /* Galerie et partenaires */
+  .gallery,
+  .sponsor-grid {
+    gap: 3mm;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery figure,
+  .gallery figure:last-child {
+    grid-column: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .sponsor-grid,
+  .sponsor-grid .sponsor:first-child {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column: auto;
+  }
+
+  .sponsor:has(.sponsor-placeholder) {
+    display: none !important;
+  }
+
+  .sponsor-logo {
+    height: 32mm;
+  }
+
+  .sponsor-dark .sponsor-logo {
+    background: var(--ink);
+    border-color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Pied de page : il porte le contact une fois le formulaire retire */
+  .site-footer {
+    padding: 5mm 0 0;
+    background: none;
+    color: var(--muted-light);
+    border-top: 1px solid #d5e1df;
+  }
+
+  .footer-inner {
+    gap: 3mm;
+  }
+
+  .footer-inner .brand {
+    color: var(--ink);
+  }
+
+  .footer-inner nav {
+    display: none !important;
+  }
+}
