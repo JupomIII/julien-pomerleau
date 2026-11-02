@@ -55,6 +55,6 @@ Puis visite <http://localhost:4173>.
    `fondation-ascension.png`, détouré pour que seul le logo apparaisse dans son cadre.
 
 4. Pour remplacer une photo, copie la nouvelle image dans `assets/photos/` et modifie le `src` de la balise `<img>` correspondante dans `index.html`. Garde un texte `alt` qui décrit réellement la photo.
-5. Remplace `contact@votre-domaine.fr` dans `index.html` **et** `script.js` par l’adresse à utiliser pour le formulaire.
+5. L’adresse de contact est `julienpomerleau07@gmail.com` : elle figure dans le pied de page (`index.html`) et dans `script.js` pour le formulaire. Modifie les deux si elle change.
 
 Les chemins des ressources sont relatifs à la racine du projet. Garde cette organisation et ces chemins quand tu déplaceras ou ajouteras des fichiers.

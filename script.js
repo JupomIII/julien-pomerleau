@@ -35,8 +35,6 @@ mainNav.querySelectorAll("a").forEach((link) => {
   });
 });
 
-document.querySelector("#year").textContent = new Date().getFullYear();
-
 document.querySelector("#contact-form").addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = new FormData(event.currentTarget);
@@ -44,6 +42,6 @@ document.querySelector("#contact-form").addEventListener("submit", (event) => {
   const details = [formData.get("email"), formData.get("phone")].filter(Boolean).join(" · ");
   const subject = `Message de ${name} — portfolio sportif`;
   const body = `Bonjour,\n\n${formData.get("message")}\n\n${name}\n${details}`;
-  const email = "contact@votre-domaine.fr";
+  const email = "julienpomerleau07@gmail.com";
   window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 });
