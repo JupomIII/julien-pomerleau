@@ -431,11 +431,44 @@ h2 {
 
 .honours-aside {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(20px, 4vw, 40px);
   padding-left: clamp(24px, 4vw, 48px);
   border-left: 1px solid var(--line-light);
+}
+
+.honours-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(14px, 2vw, 20px);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.honours-row:first-child {
+  padding-top: 0;
+}
+
+.honours-row:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.honours-row .honours-num {
+  font-size: clamp(38px, 4.4vw, 56px);
+}
+
+.honours-row h3 {
+  font-size: clamp(15px, 1.5vw, 17px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.honours-row .honours-place {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--muted-light);
 }
 
 .honours-place {
@@ -792,7 +825,7 @@ h2 {
 
   .honours-aside {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 0;
     padding-left: 0;
     padding-top: 18px;
     border-left: 0;
