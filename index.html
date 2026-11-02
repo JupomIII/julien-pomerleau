@@ -6,205 +6,242 @@
     <meta name="theme-color" content="#071f2b" />
     <meta
       name="description"
-      content="Portfolio sportif — le parcours, les résultats et les projets d’un athlète."
+      content="Portfolio sportif — le parcours, les camps et les partenaires d’un athlète de kayak de vitesse."
     />
     <title>Julien Pomerleau — Kayak de vitesse</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="site-header" id="top">
-      <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
-        <span></span><span></span>
-      </button>
-      <nav class="main-nav" aria-label="Navigation principale">
-        <a href="#profil">À propos</a>
-        <a href="#resultats">Résultats</a>
-        <a href="#camps">Camps</a>
-        <a href="#partenaires">Partenaires</a>
-        <a class="nav-cta" href="#contact">Contact</a>
-      </nav>
+      <div class="wrap header-inner">
+        <nav class="main-nav" aria-label="Navigation principale">
+          <a href="#profil">à propos</a>
+          <a href="#parcours">parcours</a>
+          <a href="#photos">photos</a>
+          <a href="#partenaires">partenaires</a>
+        </nav>
+        <a class="nav-cta" href="#contact">contact</a>
+        <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
     </header>
 
     <main>
       <section class="hero" id="accueil" aria-label="Présentation">
         <img
           class="hero-image"
-          src="assets/photos/kayak-course.jpg"
-          alt="Athlète en action sur l’eau"
+          src="assets/photos/course-2026-06-02.webp"
+          alt="Course de kayak de vitesse sur l’eau"
           fetchpriority="high"
         />
         <div class="hero-shade"></div>
-        <div class="hero-streaks" aria-hidden="true"><span></span><span></span><span></span></div>
-        <div class="hero-waves" aria-hidden="true">
-          <svg class="wave wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
-            <path d="M0 60 Q180 20 360 60 T720 60 T1080 60 T1440 60 T1800 60 T2160 60 T2520 60 T2880 60 V120 H0 Z" />
-          </svg>
-          <svg class="wave wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
-            <path d="M0 80 Q180 40 360 80 T720 80 T1080 80 T1440 80 T1800 80 T2160 80 T2520 80 T2880 80 V120 H0 Z" />
-          </svg>
-          <div class="buoys">
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-          </div>
+        <div class="wrap hero-copy">
+          <h1>kayakiste.<br />sprinteur.<br />québécois.</h1>
+          <p class="hero-meta">Kayak de vitesse · K1 / K2 / K4</p>
         </div>
-        <div class="hero-copy">
-          <p class="eyebrow reveal"><span class="live-dot"></span>Kayak de vitesse · Athlète</p>
-          <h1 class="reveal">Puissance.<br />Cadence.<br /><em>Vitesse.</em></h1>
-          <p class="hero-intro reveal">Une ligne d’eau. Des repères. Une trajectoire : la tienne.</p>
-          <p class="hero-meta reveal">Sprint kayak · K1 / K2 / K4</p>
-        </div>
-        <a class="scroll-cue" href="#profil" aria-label="Découvrir mon parcours">↓</a>
       </section>
 
-      <section class="section about" id="profil">
-        <div class="container split">
-          <figure class="portrait reveal">
+      <section class="section section-dark" id="profil">
+        <div class="wrap narrow">
+          <h2 class="reveal">julien pomerleau</h2>
+          <p class="intro center reveal">
+            Sur l’eau, tout se joue dans l’équilibre entre puissance, technique et timing. Depuis mes
+            premiers coups de pagaie, je m’entraîne pour gagner des dixièmes et repousser mes limites,
+            une séance à la fois.
+          </p>
+
+          <div class="profile-card reveal">
+            <figure class="profile-photo">
+              <img
+                src="assets/photos/seance-verticale.jpeg"
+                alt="Julien Pomerleau sur le quai, pagaie à la main"
+                loading="lazy"
+              />
+            </figure>
+            <dl class="profile-facts">
+              <div><dt>discipline</dt><dd>Kayak de vitesse — K1, K2, K4</dd></div>
+              <div><dt>club</dt><dd>Canoë-kayak Lac-Beauport</dd></div>
+              <div><dt>région</dt><dd>Québec, Canada</dd></div>
+              <div class="is-key"><dt>équipe</dt><dd>Équipe du Québec depuis 5 ans · statut: relève</dd></div>
+              <div><dt>saison</dt><dd>Avril à octobre · camps en hiver</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-light" id="parcours">
+        <div class="wrap split">
+          <div class="split-copy reveal">
+            <h2>mon parcours</h2>
+            <p class="intro">
+              Les camps et les compétitions qui ont marqué ma progression, du développement au niveau
+              national.
+            </p>
+            <ul class="timeline">
+              <li>
+                <time>camp de performance - hiver 2024</time>
+                <span>Crystal-Lake</span>
+              </li>
+              <li>
+                <time>camp de performance - hiver 2025</time>
+                <span>Indian Harbour</span>
+              </li>
+              <li>
+                <time>camp de performance - hiver 2026</time>
+                <span>Indian Harbour</span>
+              </li>
+              <li>
+                <time>camp de performance - hiver 2027</time>
+                <span>Vila Nova de Milfontes</span>
+              </li>
+            </ul>
+          </div>
+          <figure class="split-photo reveal">
             <img
-              src="assets/photos/portrait-julien.jpg"
-              alt="Portrait de la ou du kayakiste"
+              src="assets/photos/course-2026-06-02.webp"
+              alt="Julien Pomerleau en action, pagaie en main"
               loading="lazy"
             />
-            <figcaption>Hors piste, même état d’esprit.</figcaption>
           </figure>
-          <div class="split-copy reveal">
-            <p class="eyebrow">Kayakiste de vitesse</p>
-            <h2>Julien <em>Pomerleau.</em></h2>
-            <p class="lead">Le regard sur l’arrivée. La pagaie dans l’eau. À fond.</p>
-            <p>
-              En kayak de vitesse, tout se joue dans l’équilibre entre puissance, technique et timing.
-              Des premiers coups de pagaie au sprint final, chaque détail compte. Ici, je partage mes
-              entraînements, mes compétitions et le chemin vers mes prochains objectifs.
-            </p>
+        </div>
+      </section>
+
+      <section class="section section-light honours" id="championnats">
+        <div class="wrap honours-inner">
+          <div class="honours-main reveal">
+            <p class="honours-num">5</p>
+            <div>
+              <h2>championnats nationaux</h2>
+              <p class="intro">
+                J’ai participé à cinq championnats nationaux, en sprint comme en longues distances.
+              </p>
+            </div>
+          </div>
+          <div class="honours-aside reveal">
+            <p class="honours-num">1</p>
+            <div class="honours-aside-text">
+              <p class="honours-tags">championnats nationaux longue distance</p>
+              <p class="honours-place">Niagara-on-the-Lake</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="resultats">
-        <div class="container">
-          <header class="section-head reveal">
-            <p class="eyebrow">Bilan · 2024 — 2026</p>
-            <h2>La performance en <em>chiffres.</em></h2>
-            <p>
-              Julien Pomerleau · Club de canoë-kayak Lac-Beauport. Toutes les courses validées de la
-              bible des résultats, des essais provinciaux aux championnats nationaux.
-            </p>
-          </header>
-
-          <div class="stats reveal" aria-label="Bilan de carrière 2024 — 2026">
-            <div><strong data-count="12">12</strong><span>Compétitions</span></div>
-            <div><strong data-count="63">63</strong><span>Courses</span></div>
-            <div><strong data-count="12">12</strong><span>Podiums</span></div>
+      <section class="section section-dark" id="photos">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>en images</h2>
+            <p>Quelques instants d’entraînement et de course.</p>
           </div>
-        </div>
-      </section>
-
-      <section class="section" id="camps">
-        <div class="container camp-history reveal">
-          <p class="eyebrow">Camps d’entraînement</p>
-          <h3>Camps auxquels j’ai <em>participé.</em></h3>
-          <ul class="camp-list">
-            <li>
-              <time>14 – 20 avril 2026</time>
-              <span>Stage de printemps · Lieu à compléter</span>
-            </li>
-            <li>
-              <time>6 – 12 juillet 2025</time>
-              <span>Camp d’entraînement d’été · Lieu à compléter</span>
-            </li>
-            <li>
-              <time>20 – 26 août 2024</time>
-              <span>Stage de sélection · Lieu à compléter</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section section-light" id="plus-sur-moi">
-        <div class="container split">
-          <div class="split-copy reveal">
-            <p class="eyebrow">L’athlète, mais aussi la personne</p>
-            <h2>Ce qui me <em>fait avancer.</em></h2>
-            <p>
-              La performance ne se construit pas seulement sur l’eau. La curiosité, la constance et le
-              plaisir de progresser font aussi partie du voyage. Cette section est à toi : raconte ce
-              qui te motive, tes études ou ton travail, tes passions et les personnes qui t’inspirent.
-            </p>
-          </div>
-          <div class="list">
-            <article class="card reveal">
-              <span class="step-num">01</span>
-              <div><small>Mes valeurs</small><p>Esprit d’équipe, détermination, respect.</p></div>
-            </article>
-            <article class="card reveal">
-              <span class="step-num">02</span>
-              <div><small>En dehors du kayak</small><p>Ajoute ici tes passions, tes études ou ton quotidien.</p></div>
-            </article>
-            <article class="card reveal">
-              <span class="step-num">03</span>
-              <div><small>Ma motivation</small><p>Le plaisir de me dépasser et de partager l’aventure.</p></div>
-            </article>
+          <div class="gallery">
+            <figure class="reveal">
+              <img
+                src="assets/photos/course-03.webp"
+                alt="Deux kayakistes en entraînement sur le lac"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="reveal">
+              <img
+                src="assets/photos/entrainement-2026-08-26.webp"
+                alt="Sprint en kayak vu de face, éclaboussures"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="reveal">
+              <img
+                src="assets/photos/course-02.webp"
+                alt="Kayakiste seul sur l’eau au coucher du soleil"
+                loading="lazy"
+              />
+            </figure>
           </div>
         </div>
       </section>
 
       <section class="section section-light" id="partenaires">
-        <div class="container">
-          <header class="section-head reveal">
-            <p class="eyebrow">Aller plus loin, ensemble</p>
-            <h2>Le sport est une <em>équipe.</em></h2>
-            <p>
-              Derrière chaque départ, il y a une équipe. Merci à mes partenaires pour leur soutien à mon
-              parcours de kayakiste de vitesse.
-            </p>
-            <a class="btn btn-dark" href="#contact">Devenir partenaire →</a>
-          </header>
-          <p class="eyebrow eyebrow-muted reveal">Mes partenaires actuels</p>
+        <div class="wrap narrow">
+          <h2 class="reveal">la réussite est un travail d’équipe.</h2>
+          <p class="intro center reveal">
+            Derrière chaque départ, il y a une équipe. Je suis récipiendaire de la Fondation Ascension
+            depuis un an et soutenu par Excellence Sportive depuis quatre ans. Merci à mes partenaires de
+            croire au projet.
+          </p>
+
+          <p class="label reveal">partenaires</p>
           <div class="sponsor-grid">
             <figure class="sponsor reveal">
-              <img
-                src="assets/sponsors/fondation-ascension.png"
-                alt="Fondation Ascension"
-                loading="lazy"
-              />
+              <div class="sponsor-logo">
+                <img
+                  src="assets/sponsors/fondation-ascension.png?v=2"
+                  alt="Fondation Ascension"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption>
+                Fondation Ascension
+                <small>récipiendaire depuis un an</small>
+              </figcaption>
             </figure>
             <figure class="sponsor sponsor-dark reveal">
-              <img
-                src="assets/sponsors/excellence-sportive.png"
-                alt="Excellence Sportive — Estrie · Centre-du-Québec"
-                loading="lazy"
-              />
+              <div class="sponsor-logo">
+                <img
+                  src="assets/sponsors/excellence-sportive.png"
+                  alt="Excellence Sportive — Estrie · Centre-du-Québec"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption>
+                Excellence Sportive
+                <small>depuis quatre ans</small>
+              </figcaption>
             </figure>
-            <div class="sponsor sponsor-placeholder reveal" aria-label="Emplacement pour un prochain partenaire">
-              <span>+</span><small>Votre logo ici</small>
-            </div>
+            <figure class="sponsor reveal">
+              <div class="sponsor-logo sponsor-placeholder" aria-hidden="true"><span>+</span></div>
+              <figcaption>
+                votre logo ici
+                <small>devenir partenaire</small>
+              </figcaption>
+            </figure>
           </div>
-          <p class="values reveal">Engagement · Confiance · Ambition</p>
         </div>
       </section>
 
       <section class="section section-dark" id="contact">
-        <div class="container split">
-          <div class="split-copy reveal">
-            <p class="eyebrow">On en parle ?</p>
-            <h2>Écrivons <em>la suite.</em></h2>
-            <p>
-              Partenariat, compétition, presse ou projet autour du kayak de vitesse ? Écris-moi, je serai
-              ravi·e d’échanger.
-            </p>
-            <a class="contact-email" href="mailto:contact@votre-domaine.fr">contact@votre-domaine.fr →</a>
-          </div>
+        <div class="wrap">
+          <h2 class="center reveal">un projet, un partenariat ?</h2>
+          <p class="intro center reveal">
+            Écrivez-moi quelques lignes : je réponds personnellement à chaque message.
+          </p>
+
           <form class="contact-form reveal" id="contact-form">
-            <label>Votre nom
-              <input name="name" autocomplete="name" placeholder="Nom et prénom" required />
+            <div class="field-row">
+              <label>Prénom
+                <input name="firstName" autocomplete="given-name" placeholder="Prénom" required />
+              </label>
+              <label>Nom
+                <input name="lastName" autocomplete="family-name" placeholder="Nom" required />
+              </label>
+            </div>
+            <div class="field-row">
+              <label>E-mail
+                <input name="email" type="email" autocomplete="email" placeholder="vous@exemple.fr" required />
+              </label>
+              <label>Téléphone
+                <input name="phone" type="tel" autocomplete="tel" placeholder="+1 000 000 0000" />
+              </label>
+            </div>
+            <label>Message
+              <textarea name="message" rows="5" placeholder="Parlons de votre projet…" required></textarea>
             </label>
-            <label>Votre e-mail
-              <input name="email" type="email" autocomplete="email" placeholder="vous@exemple.fr" required />
+            <label class="check">
+              <input type="checkbox" name="consent" required />
+              <span>J’accepte que mes informations soient utilisées pour répondre à ma demande.</span>
             </label>
-            <label>Votre message
-              <textarea name="message" rows="4" placeholder="Parlons de votre projet…" required></textarea>
-            </label>
-            <button class="btn btn-primary" type="submit">Préparer mon message →</button>
+            <button class="btn" type="submit">envoyer</button>
             <p class="note" id="form-note">
-              Le bouton ouvrira votre application e-mail. Remplacez l’adresse de contact par la vôtre.
+              Le bouton ouvrira votre application e-mail avec le message prérempli.
             </p>
           </form>
         </div>
@@ -212,9 +249,19 @@
     </main>
 
     <footer class="site-footer">
-      <a class="brand" href="#accueil">JP<small>KAYAK</small></a>
-      <p>© <span id="year"></span> Julien Pomerleau — Tous droits réservés</p>
-      <a href="#accueil">Retour en haut ↑</a>
+      <div class="wrap footer-inner">
+        <a class="brand" href="#accueil">jp</a>
+        <p>julien pomerleau · <a href="mailto:contact@votre-domaine.fr">contact@votre-domaine.fr</a></p>
+        <nav aria-label="Liens de pied de page">
+          <a href="#profil">à propos</a>
+          <a href="#partenaires">partenaires</a>
+          <a href="#contact">contact</a>
+        </nav>
+      </div>
+      <div class="wrap footer-bottom">
+        <p>© <span id="year"></span> Julien Pomerleau — tous droits réservés</p>
+        <a href="#accueil">retour en haut ↑</a>
+      </div>
     </footer>
     <script src="script.js"></script>
   </body>

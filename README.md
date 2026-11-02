@@ -21,30 +21,38 @@ Puis visite <http://localhost:4173>.
 | Modifier le menu mobile ou le formulaire e-mail     | `script.js`         |
 | Remplacer les photos                                | `assets/photos/`    |
 | Ajouter ou remplacer un logo de sponsor             | `assets/sponsors/`  |
-| Mettre à jour les résultats | Section **Résultats** dans `index.html` |
+| Mettre à jour le parcours et les camps | Section **Mon parcours** dans `index.html` |
 
 ## Personnaliser le portfolio
 
 1. Dans `index.html`, remplace les textes de présentation et les informations à personnaliser.
-2. Dans la section **Résultats**, actualise les rangs et chronos à partir de résultats officiels. Les données 2026 affichées ont été transcrites à partir du rapport fourni, qui reste local et n’est pas publié avec le site.
-3. Dans la section **Mes partenaires actuels**, remplace les emplacements `VOTRE LOGO ICI` par de nouvelles cartes. Dépose d’abord chaque logo dans `assets/sponsors/`, puis ajoute une image comme celle de Fondation Ascension :
+2. Dans la section **Mon parcours**, ajoute ou modifie les camps et les saisons. Le style reste volontairement simple : une ligne par étape.
+3. Dans la section **Partenaires**, remplace l’emplacement « votre logo ici » par une nouvelle carte. Dépose d’abord le logo dans `assets/sponsors/`, puis copie le bloc d’un partenaire existant :
 
    ```html
    <figure class="sponsor">
-     <img
-       src="assets/sponsors/nom-du-sponsor.png"
-       alt="Nom du sponsor"
-       loading="lazy"
-     />
+     <div class="sponsor-logo">
+       <img
+         src="assets/sponsors/nom-du-sponsor.png"
+         alt="Nom du sponsor"
+         loading="lazy"
+       />
+     </div>
+     <figcaption>
+       Nom du sponsor
+       <small>depuis 2024</small>
+     </figcaption>
    </figure>
    ```
 
-   Les logos s’affichent sans légende. Pour un logo dont le texte est blanc (comme
-   `excellence-sportive.png`), ajoute la classe `sponsor-dark` à la `figure` :
+   Le texte de la `figcaption` s’affiche sous le logo : le nom, puis une précision en petites capitales. Pour un logo clair ou blanc (comme `excellence-sportive.png`), ajoute la classe `sponsor-dark` à la `figure` pour obtenir un fond bleu encre :
 
    ```html
    <figure class="sponsor sponsor-dark">
    ```
+
+   Les logos sont mieux rendus avec un fond transparent : c’est le cas de
+   `fondation-ascension.png`, détouré pour que seul le logo apparaisse dans son cadre.
 
 4. Pour remplacer une photo, copie la nouvelle image dans `assets/photos/` et modifie le `src` de la balise `<img>` correspondante dans `index.html`. Garde un texte `alt` qui décrit réellement la photo.
 5. Remplace `contact@votre-domaine.fr` dans `index.html` **et** `script.js` par l’adresse à utiliser pour le formulaire.
