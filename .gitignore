@@ -1,9 +1,5 @@
 # Rapport de résultats : copie locale seulement, jamais publiée
 assets/documents/
 
-# Images non utilisées par index.html (ne pas synchroniser)
-assets/photos/kayak-course.webp
-assets/photos/seance-verticale.jpeg
-
 # Dossier technique de l'outil
 .freebuff/
